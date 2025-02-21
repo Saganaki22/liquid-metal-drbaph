@@ -15,7 +15,7 @@ const PREDEFINED_LOGOS = [
   'apple'
 ];
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return PREDEFINED_LOGOS.map((id) => ({
     id,
   }));
