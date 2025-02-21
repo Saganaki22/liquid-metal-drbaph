@@ -26,6 +26,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy assets to out/liquid-metal-drbaph
+        run: |
+          mkdir -p out/liquid-metal-drbaph
+          cp -r public/* out/liquid-metal-drbaph/
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
