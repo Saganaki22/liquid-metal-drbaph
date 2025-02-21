@@ -1,13 +1,8 @@
-import Page from './share/[id]/page';
+import { redirect } from 'next/navigation';
 
 const DEFAULT_LOGO_ID = 'punisher';
 
 export default function Home() {
-  return (
-    <Page
-      params={{
-        id: DEFAULT_LOGO_ID
-      }}
-    />
-  );
+  redirect(`/liquid-metal-drbaph/share/${DEFAULT_LOGO_ID}`);
+  return null;
 }
