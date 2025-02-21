@@ -26,12 +26,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: List output directory
+        run: ls -la out/
+
       - name: Prepare deployment
         run: |
-          cp out/404.html out/liquid-metal-drbaph/
-          cp out/index.html out/liquid-metal-drbaph/
-          cp -r out/_next out/liquid-metal-drbaph/
-          rm -rf out/404.html out/index.html out/_next
+          mkdir -p out/liquid-metal-drbaph
+          cp -r out/* out/liquid-metal-drbaph/ || true
+          rm -rf out/liquid-metal-drbaph/liquid-metal-drbaph || true
           touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
