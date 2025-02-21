@@ -26,10 +26,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy assets to out/liquid-metal-drbaph
+      - name: Prepare deployment
         run: |
-          mkdir -p out/liquid-metal-drbaph
-          cp -r public/* out/liquid-metal-drbaph/
+          cp out/404.html out/liquid-metal-drbaph/
+          cp out/index.html out/liquid-metal-drbaph/
+          cp -r out/_next out/liquid-metal-drbaph/
+          rm -rf out/404.html out/index.html out/_next
+          touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
