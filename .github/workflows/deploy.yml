@@ -31,11 +31,18 @@ jobs:
 
       - name: Prepare deployment
         run: |
-          mkdir -p out/liquid-metal-drbaph
-          cp -r out/* out/liquid-metal-drbaph/ || true
-          rm -rf out/liquid-metal-drbaph/liquid-metal-drbaph || true
-          mv out/liquid-metal-drbaph/* out/
-          rm -rf out/liquid-metal-drbaph
+          # Create directories
+          mkdir -p deploy/liquid-metal-drbaph
+          
+          # Copy everything to a staging area
+          cp -r out/* deploy/
+          cp -r out/* deploy/liquid-metal-drbaph/
+          
+          # Move back to out
+          rm -rf out
+          mv deploy out
+          
+          # Add .nojekyll
           touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
