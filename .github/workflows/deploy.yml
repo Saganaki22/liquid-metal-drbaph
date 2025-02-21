@@ -29,21 +29,8 @@ jobs:
       - name: List output directory
         run: ls -la out/
 
-      - name: Prepare deployment
-        run: |
-          # Create directories
-          mkdir -p deploy/liquid-metal-drbaph
-          
-          # Copy everything to a staging area
-          cp -r out/* deploy/
-          cp -r out/* deploy/liquid-metal-drbaph/
-          
-          # Move back to out
-          rm -rf out
-          mv deploy out
-          
-          # Add .nojekyll
-          touch out/.nojekyll
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
