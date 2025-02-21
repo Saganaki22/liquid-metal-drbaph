@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/liquid-metal-drbaph',
-  assetPrefix: '/liquid-metal-drbaph',
+  basePath: '',
+  assetPrefix: '',
   trailingSlash: true,
   images: {
     unoptimized: true,
